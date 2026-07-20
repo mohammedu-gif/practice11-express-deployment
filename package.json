@@ -1,5 +1,5 @@
 {
-  "name": "practice9",
+  "name": "practice12",
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
@@ -8,7 +8,7 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
+  "description": "Practice 12 Express deployment with environment variables",
   "dependencies": {
     "express": "^5.2.1"
   }

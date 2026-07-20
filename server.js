@@ -1,29 +1,33 @@
-// Practice 11: Deploying Node.js Express Application
+// Practice 12: Enhancing Deployment with Environment Variables
 // Created by Umar Mohammed for INFO 350
 
 const express = require("express");
 const app = express();
 
-// Render will provide its own port when deployed.
-// If no port is provided, the app will use 3000 locally.
+// Render provides its own port when deployed.
+// The app uses 3000 when running locally.
 const PORT = process.env.PORT || 3000;
 
-// Middleware to allow Express to read JSON data
+// GREETING is an environment variable.
+// If GREETING is not set, the app uses the default message below.
+const greeting = process.env.GREETING || "Hello from your deployed app!";
+
+// Middleware that allows Express to read JSON data
 app.use(express.json());
 
 // Home route to confirm the app is running
 app.get("/", (req, res) => {
-    res.send("Umar's Express API is live and running!");
+    res.send("Umar's Express API is live and using environment variables!");
 });
 
-// Practice 9 GET route
+// API route that returns a message from the GREETING environment variable
 app.get("/api/message", (req, res) => {
     res.json({
-        message: "Hello from your first Express API!"
+        message: greeting
     });
 });
 
-// Practice 10 POST route
+// POST route from previous practice
 app.post("/api/notes", (req, res) => {
     const { name, note } = req.body;
 
